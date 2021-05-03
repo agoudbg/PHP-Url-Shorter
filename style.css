@@ -1,0 +1,257 @@
+:root{
+
+    --bodybg: #ffffff;
+    --grey-bg: #f7f7f7;
+    --grey-active: #f3f3f3;
+    --text: #000000;
+    --grey-text: #5a5a5a;
+    --grey-shadow: rgba(4,4,4,0.1);
+    --grey-shadow-hover: rgba(1,1,1,0.15);
+    --shadow-pre-1: var(--grey-shadow) 2px 2px 5px;
+    --shadow-hover-pre-1: var(--grey-shadow-hover) 2px 2px 5px;
+
+}
+
+@media (prefers-color-scheme:dark) {
+
+    :root{
+
+        --bodybg: #262626;
+        --grey-bg: #333333;
+        --grey-active: #555555;
+        --text: #ffffff;
+        --grey-text: #d8d8d8;
+        --grey-shadow: rgba(0,0,0,0.2);
+        --grey-shadow-hover: rgba(0,0,0,0.4);
+    
+    }
+
+}
+
+body{
+
+    background-color: var(--bodybg);
+
+}
+
+*{
+
+    margin: 0;
+    padding: 0;
+    
+}
+
+button, input {
+
+    padding: 0.55em 0.7em;
+    margin: 0.2em 0.04em;
+    outline: none;
+    border: none;
+    border-radius: 0.24em;
+    cursor: pointer;
+    font-size: 0.94em;
+    box-shadow: var(--shadow-pre-1);
+    background-color: var(--grey-bg);
+    color: var(--grey-text);
+    transition: all 0.3s;
+
+}
+
+input[type="text"],input[type="number"]{
+
+    color: var(--text);
+    cursor: text;
+
+}
+
+input[type="text"].placeholder::-webkit-input-placeholder{
+
+    padding-left: calc(50% - 2em);
+    transition: all 0.35s;
+
+}
+
+input[type="text"].placeholder:focus::-webkit-input-placeholder{
+
+    padding-left: 0;
+    
+}
+
+button:hover, button:hover, input:hover, input:hover{
+
+    box-shadow: var(--shadow-hover-pre-1);
+
+}
+
+button:active, button:active{
+
+    background-color: var(--grey-active);
+    transform: scale(0.99);
+    transition: all 0.1s;
+    
+}
+
+.card{
+
+    padding: 1em;
+    margin-bottom: 0.5em;
+    outline: none;
+    border: none;
+    border-radius: 0.24em;
+    cursor: inherit;
+    font-size: 0.94em;
+    box-shadow: var(--shadow-pre-1);
+    background-color: var(--grey-bg);
+    color: var(--grey-text);
+    width: 80%;
+    margin: 0 10%;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+
+}
+
+.card.resultMsg{
+
+    z-index: 888;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.card:hover{
+
+    box-shadow: var(--shadow-hover-pre-1);
+
+}
+
+.card:active{
+
+    /* background-color: var(--grey-active); */
+    /* transform: scale(0.999); */
+    transition: all 0.1s;
+    
+}
+
+
+.card button, .card input{
+  
+    background-color: var(--bodybg);
+
+}
+
+label input{
+
+    display: none;
+
+}
+
+
+label{
+
+    position: relative;
+    padding-left: 1.28em;
+
+}
+
+label input[type="checkbox"]+i{
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(checkbox.svg);
+    background-position: 0,0;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+}
+
+label input:checked[type="checkbox"]+i{
+
+    background-image: url(checkbox_cked.svg);
+    
+
+}
+
+.msg{
+
+    background-color: var(--grey-bg);
+    color: var(--grey-text);
+    display: block;
+    position: fixed;
+    z-index: 666;
+    padding: 0.9em 1em;
+    border-radius: 0.2em;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: var(--shadow-pre-1);
+    max-width: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 1.25;
+
+}
+
+h2, h3{
+
+    padding-bottom: 0.4em;
+
+}
+
+.maxwidth{
+
+    width: calc(100% - 21px);
+
+}
+
+.smallwidth{
+
+    width: 3em;
+
+}
+
+.right{
+
+    text-align: right;
+
+}
+
+#resultBox{
+
+    display: none;
+
+}
+
+#cover{
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+
+*[open="true"]{
+
+    opacity: 1!important;
+    visibility: visible!important;
+
+}
+
+a{
+
+    color: var(--grey-text)!important;
+    text-decoration: none!important;
+
+}

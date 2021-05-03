@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>t.agou.im</title>
+    <!-- 自适应 -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <form action="setLink.php" onsubmit="return checkBefore();" target="resultBox">
+        <div class="ago card center full">
+            <h2>t.agou.im 短链接生成</h2>
+            <input type="text" class="maxwidth" name="link" id="linkBox" placeholder="http://"></input>
+            <label for="ageBox" id="ageCon"><input type="checkbox" name="age" id="ageBox">设置有效期<i></i></label><input type="number"
+                class="smallwidth" name="day" id="dayBox" placeholder="" readonly>天<br />
+            <p class="right"><button>提交</button></p>
+            <small>Corpright agou.im. All rights reserved. <br />See the detail at <a href="https://github.com/agoudbg/PHP-Url-Shorter" target="_blank">Github</a>. </small>
+        </div>
+    </form>
+
+    <iframe id="resultBox" name="resultBox"></iframe>
+    <div id="waiting" class="msg">正在请求，请稍候…</div>
+    <div id="cover"></div>
+    <div id="resultMsg" class="card resultMsg">
+        <h3>缩短结果</h3>
+        <p id="resultTip"></p>
+        <input id="resultInput" class="maxwidth" type="text" readonly></input>
+        <p class="right"><button id="copyButton">复制</button> <button id="closeButton">关闭</button></p>
+    </div>
+</body>
+
+<script src="main.js"></script>
+
+</html>
