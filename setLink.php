@@ -8,6 +8,8 @@ $http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset(
 // 判断链接是否正确
 if (strpos($link, "http://", 0) !== 0 & strpos($link, "https://", 0) !== 0) {
     $result = array("code" => -1, "msg" => "No link or not a link.");
+} else if (strpos($link, $_SERVER["HTTP_HOST"], 0) !== false) {
+    $result = array("code" => -5, "msg" => "The link has been shorten.");
 } else {
     if ($age != "on") {
         $day = 0;
