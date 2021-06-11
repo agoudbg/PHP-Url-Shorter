@@ -1,7 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
 // 获取传入参数
-$link = isset($_GET['link']) ? htmlspecialchars($_GET['link']) : '';
+$link = str_replace("&amp;", "&", isset($_GET['link']) ? htmlspecialchars($_GET['link']) : '');
 $day = isset($_GET['day']) ? htmlspecialchars($_GET['day']) : '';
 $age = isset($_GET['age']) ? htmlspecialchars($_GET['age']) : '';
 $http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? 'https://' : 'http://';
