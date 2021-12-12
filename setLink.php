@@ -1,6 +1,9 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
+
+require("config.php");
+
 // 获取传入参数
 $link = str_replace("&amp;", "&", isset($_GET['link']) ? htmlspecialchars($_GET['link']) : '');
 $day = isset($_GET['day']) ? htmlspecialchars($_GET['day']) : '';
@@ -18,18 +21,15 @@ if (strpos($link, "http://", 0) !== 0 & strpos($link, "https://", 0) !== 0) {
     } else { // 计算时间戳
         $expire = time() - time() % 86400 + ($day * 86400 - $day % 86400);
     }
-    $servername = "localhost";
-    $username = "s9938012";
-    $password = "nmnm";
-    $dbname = "s9938012";
     // 创建数据库连接
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // 检测数据库连接
     if (!$conn) {
         $result = array("code" => -2, "msg" => "Connection to the database failed: " . mysqli_connect_error());
     } else {
-        // echo "连接成功";
-
+        $link = mysqli_real_escape_string($conn, addslashes($link));
+        $day = mysqli_real_escape_string($conn, addslashes($link));
+        $age = mysqli_real_escape_string($conn, addslashes($link));
         // 生成随机字符串
         $shortResult = newShort($link);
         // 确认字符串可用性

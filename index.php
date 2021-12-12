@@ -1,4 +1,7 @@
 <?php
+
+require("config.php");
+
 //获取参数
 $request = $_SERVER["REQUEST_URI"];
 if ($request == "/")
@@ -6,16 +9,11 @@ if ($request == "/")
 else {
     $redirectTo = "404.html";
     $request = str_replace("/", "", $request);
-    // echo $request;
-    $servername = "localhost";
-    $username = "s9938012";
-    $password = "nmnm";
-    $dbname = "s9938012";
     // 创建数据库连接
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // 检测数据库连接
     if (!$conn) {
-        $redirectTo = "connectionfailed.html";
+        $redirectTo = "connectionerror.html";
     } else {
         // echo "连接成功";
         $sql = "SELECT * FROM shortLink WHERE shorten = '$request'";
